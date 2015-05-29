@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+
+	<title>RPM Check</title>
+
+	<style>
+		html, body {
+			height: 100%;
+			background: black;
+		}
+		
+		#display {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translateY(-50%) translateX(-50%);
+			transform: translateY(-50%) translateX(-50%);
+			font-size: 9vw;
+			color: white;
+			font-family: 'Helvetica';
+			font-weight: bold;
+		}
+	</style>
+
+	<script>
+		window.addEventListener('devicemotion', function (ev) {
+			document.getElementById("rpm").innerHTML = (Math.abs(ev.rotationRate.gamma)/6).toFixed(2)
+		}, true);
+	</script>
+</head>
+<body>
+	<div id="display"><span id="rpm">0</span> RPM</div>
+</body>
+</html>
